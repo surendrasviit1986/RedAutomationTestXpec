@@ -26,5 +26,10 @@
             <xsl:value-of select="functx:escape-for-regex(.)"/>
         </phrase>
     </xsl:template>
+    <xsl:template match="p">
+        <p>
+            <xsl:apply-templates select="phrase"/>
+        </p>
+    </xsl:template>
 
 </xsl:stylesheet>
