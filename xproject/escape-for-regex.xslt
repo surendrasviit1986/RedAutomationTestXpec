@@ -22,14 +22,8 @@
 
     <xsl:template match="phrase">
         <xsl:variable name="escaped-text" select="functx:escape-for-regex(.)"/>
-        <phrase status="{if (. = $escaped-text) then 'changed' else 'same'}">
+        <phrase status="{if (. != $escaped-text) then 'changed' else 'same'}">
             <xsl:value-of select="functx:escape-for-regex(.)"/>
         </phrase>
     </xsl:template>
-    <xsl:template match="p">
-        <p>
-            <xsl:apply-templates select="phrase"/>
-        </p>
-    </xsl:template>
-
 </xsl:stylesheet>
